@@ -1,0 +1,10 @@
+{
+  "bot": {
+    "userAgent": "redditDownloader",
+    "clientId": "",
+    "clientSecret": "",
+    "username": "reddit-username",
+    "password": "reddit-password"
+  },
+  "interval": 3.6e6
+}
