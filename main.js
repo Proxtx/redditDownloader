@@ -17,7 +17,13 @@ const parsePost = (post) => {
       downloads: [],
     };
 
-    if (post.preview && post.preview.reddit_video_preview)
+    if (post?.crosspost_parent_list?.[0]) {
+      post = post.crosspost_parent_list[0];
+    }
+
+    if (post?.media?.reddit_video?.fallback_url) {
+      res.downloads = [post.secure_media.reddit_video.fallback_url];
+    } else if (post.preview && post.preview.reddit_video_preview)
       res.downloads = [post.preview.reddit_video_preview.fallback_url];
     else if (post.gallery_data)
       for (let i of post.gallery_data.items)
@@ -26,8 +32,16 @@ const parsePost = (post) => {
             ? post.media_metadata[i.media_id].s.u
             : post.media_metadata[i.media_id].s.gif
         );
+    else if (post.domain == "redgifs.com")
+      res.downloads = [
+        post.media.oembed.thumbnail_url
+          .replace("jpg", "mp4")
+          .replace("png", "mp4"),
+      ];
     else if (post.url) res.downloads = [post.url];
-    else res.downloads = [post.url_overridden_by_dest];
+    else {
+      res.downloads = "https://notFound.notFound/notFound.null";
+    }
 
     return res;
   } catch (e) {
