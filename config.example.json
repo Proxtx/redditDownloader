@@ -1,0 +1,10 @@
+{
+  "bot": {
+    "userAgent": "",
+    "clientId": "",
+    "clientSecret": "",
+    "username": "",
+    "password": ""
+  },
+  "interval": 600000
+}
