@@ -2,8 +2,15 @@
 
 Downloads your saved reddit posts automatically
 
-# create a reddit application here
-
+# setup
+1. create a reddit application here
 https://ssl.reddit.com/prefs/apps/
-create an app
-script
+create an app script
+
+2. Copy config.example.json to config.json
+
+3. Fill out the missing fields with the ones you got from the bot you created.
+
+4. Run node .
+
+5. (Optional) if you want a GUI to look at your posts head to https://GitHub.com/Proxtx/redditDownloaderGUI
