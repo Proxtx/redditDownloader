@@ -11,6 +11,8 @@ create an app script
 
 3. Fill out the missing fields with the ones you got from the bot you created.
 
-4. Run node .
+4. Run npm i
 
-5. (Optional) if you want a GUI to look at your posts head to https://GitHub.com/Proxtx/redditDownloaderGUI
+5. Run node .
+
+6. (Optional) if you want a GUI to look at your posts head to https://GitHub.com/Proxtx/redditDownloaderGUI
