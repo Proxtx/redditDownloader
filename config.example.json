@@ -6,5 +6,8 @@
     "username": "",
     "password": ""
   },
-  "interval": 600000
+  "interval": 600000,
+  "mode": "saved",
+  "subreddit": "DataHoarder",
+  "limit": 99999999999999999
 }

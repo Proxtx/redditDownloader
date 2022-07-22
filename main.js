@@ -52,9 +52,16 @@ const parsePost = (post) => {
 
 const generateParsedSaves = async () => {
   console.log("[", new Date().toISOString(), "]", "Fetching posts!");
-  let saved = await r.getMe().getSavedContent({ limit: Infinity });
+  let mode = config.mode ? config.mode : "saved";
+  let posts;
+  let limit = config.limit ? { limit: config.limit } : { limit: Infinity };
+  if (mode == "saved") {
+    posts = await r.getMe().getSavedContent(limit);
+  } else if (mode == "subreddit") {
+    posts = await r.getSubreddit(config.subreddit).getNew(limit);
+  }
   let svd = [];
-  for (let i of saved) svd.push(parsePost(i));
+  for (let i of posts) svd.push(parsePost(i));
   return svd;
 };
 
