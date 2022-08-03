@@ -26,7 +26,7 @@ const downloadPost = async (post) => {
   try {
     let removeLetters = '/\\[]?<>|:&,’`"'.split("");
     let promises = [];
-    let shortTitle = post.title.substring(0, 250);
+    let shortTitle = post.title.substring(0, 230);
     for (let i of removeLetters) {
       shortTitle = shortTitle.replaceAll(i, "");
     }
