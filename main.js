@@ -15,7 +15,7 @@ const parsePost = (post) => {
         (post.created_utc > 1671042843846 ? "_" + post.created_utc : ""),
       author: post.author.name,
       link: post.permalink,
-      time: post.created_utc,
+      time: Date.now(),
       downloads: [],
     };
 
