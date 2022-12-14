@@ -10,7 +10,9 @@ const parsePost = (post) => {
   try {
     let res = {
       subreddit: post.subreddit.display_name,
-      title: post.title + "_" + post.created_utc,
+      title:
+        post.title +
+        (post.created_utc > 1671042843846 ? "_" + post.created_utc : ""),
       author: post.author.name,
       link: post.permalink,
       time: post.created_utc,
