@@ -10,10 +10,10 @@ const parsePost = (post) => {
   try {
     let res = {
       subreddit: post.subreddit.display_name,
-      title: post.title,
+      title: post.title + "_" + post.created_utc,
       author: post.author.name,
       link: post.permalink,
-      time: Date.now(),
+      time: post.created_utc,
       downloads: [],
     };
 
