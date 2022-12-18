@@ -12,7 +12,7 @@ const parsePost = (post) => {
       subreddit: post.subreddit.display_name,
       title:
         post.title +
-        (Number(post.created_utc+"000") > 1671369809 ? "_" + post.created_utc : ""),
+        (Number(post.created_utc+"000") > 1671372484781 ? "_" + post.created_utc : ""),
       author: post.author.name,
       link: post.permalink,
       time: Date.now(),
