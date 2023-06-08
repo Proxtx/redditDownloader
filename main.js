@@ -48,7 +48,8 @@ const parsePost = (post) => {
     return res;
   } catch (e) {
     console.log(post);
-    throw new Error(e);
+    //throw new Error(e);
+    return null;
   }
 };
 
@@ -63,7 +64,12 @@ const generateParsedSaves = async () => {
     posts = await r.getSubreddit(config.subreddit).getNew(limit);
   }
   let svd = [];
-  for (let i of posts) svd.push(parsePost(i));
+  for (let i of posts) {
+let p = parsePost(i);
+if(p){
+ svd.push(p);
+}
+}
   return svd;
 };
 
