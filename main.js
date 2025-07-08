@@ -2,7 +2,11 @@ import Snoowrap from "snoowrap";
 import { downloadSavedPosts } from "./download.js";
 import fs from "fs/promises";
 
-const config = JSON.parse(await fs.readFile("config.json", "utf-8"));
+let configPath = process.env.CONFIG_PATH;
+if (!configPath) {
+   configPath = "config.json";
+}
+const config = JSON.parse(await fs.readFile(configPath, "utf-8"));
 
 const r = await new Snoowrap(config.bot);
 

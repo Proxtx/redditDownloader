@@ -3,7 +3,12 @@ import https from "https";
 import http from "http";
 import fsPromise from "fs/promises";
 
-const config = JSON.parse(await fsPromise.readFile("config.json", "utf-8"));
+let configPath = process.env.CONFIG_PATH;
+if (!configPath) {
+   configPath = "config.json";
+}
+const config = JSON.parse(await fsPromise.readFile(configPath, "utf-8"));
+
 const dir = config.dir ? config.dir : "download";
 
 let protocols = {
