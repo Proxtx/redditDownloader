@@ -42,7 +42,7 @@
       nixosModules.default = { config, lib, pkgs, ... }:
         with lib;
         let
-          appPackage = self.packages.${pkgs.system}.default;
+          appPackage = self.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
           cfg = config.services.${pname};
         in {
