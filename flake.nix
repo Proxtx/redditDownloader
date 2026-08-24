@@ -15,7 +15,7 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        nodejs = pkgs.nodejs_20;
+        nodejs = pkgs.nodejs_22;
 
         appPackage = pkgs.buildNpmPackage {
           inherit pname version;
@@ -66,7 +66,7 @@
               after = [ "network.target" ];
 
               serviceConfig = {
-                ExecStart = "${pkgs.nodejs_20}/bin/node ${appPackage}/main.js";
+                ExecStart = "${pkgs.nodejs_22}/bin/node ${appPackage}/main.js";
                 Restart = "always";
                 WorkingDirectory = appPackage;
                 Environment = "NODE_ENV=production CONFIG_PATH=${configPath}";
